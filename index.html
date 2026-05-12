@@ -119,6 +119,7 @@ nav.sl{background:rgba(244,241,236,.98);backdrop-filter:blur(14px);padding:1rem 
 .mc:nth-child(1) .mc-img{min-height:632px}
 .mc:nth-child(5) .mc-img{min-height:268px}
 .mc.dim{opacity:.15;transition:opacity .4s}
+.mc.filt-out{opacity:0.1;transition:opacity .4s;pointer-events:none}
 .mc-ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(20,18,16,.92) 0%,rgba(20,18,16,.04) 55%,transparent 100%);opacity:0;transition:opacity .4s}
 .mc.open .mc-ov{opacity:1}
 .mc-inf{position:absolute;bottom:0;left:0;right:0;padding:1.1rem 1rem;transform:translateY(7px);opacity:0;transition:all .4s;pointer-events:none}
@@ -312,6 +313,12 @@ footer{padding:3rem 3.5rem 2.2rem;border-top:1px solid var(--line)}
 .atc-name{font-family:'Bebas Neue',sans-serif;font-size:16px;letter-spacing:.08em;color:#f4f1ec;overflow:visible}
 .atc-role{font-size:7px;letter-spacing:.15em;color:var(--accent);text-transform:uppercase;margin-top:2px}
 
+/* ─── MENTORSHIP INTRO ───────────────────────────────── */
+.ment-intro{padding:4rem 3.5rem;display:grid;grid-template-columns:1fr 1fr;gap:5rem;border-bottom:1px solid var(--line)}
+
+/* ─── SOCIAL FEATURED WRAP ───────────────────────────── */
+.social-featured-wrap{padding:3.5rem 3.5rem;display:grid;grid-template-columns:1fr 1fr;gap:5rem;border-bottom:1px solid var(--line)}
+
 /* ─── REVEAL ─────────────────────────────────────────── */
 .rv{opacity:0;transform:translateY(18px);transition:opacity .75s ease,transform .75s ease}
 .rv.in{opacity:1;transform:translateY(0)}
@@ -376,6 +383,8 @@ footer{padding:3rem 3.5rem 2.2rem;border-top:1px solid var(--line)}
   .pi{padding:1.2rem .8rem}
   .ppub{font-size:13px}
   .pct,.pcta{font-size:6px}
+  .pi:nth-child(3n){border-right:none}
+  .pi:nth-child(-n+3){border-bottom:1px solid rgba(28,28,28,.1)}
 
   /* BRANDS */
   .brands{padding:1.8rem 1.5rem}
@@ -412,7 +421,10 @@ footer{padding:3rem 3.5rem 2.2rem;border-top:1px solid var(--line)}
   .rc-txt{padding:1.4rem 1rem;min-height:0}
   .rc-name{font-size:15px}
   .rc-meas{font-size:6.5px}
-  .rfilt{padding:0 1.5rem}
+  .rfilt{padding:0;border:1px solid var(--line);margin:0 1.5rem 0}
+  .rf{flex:1;border-right:1px solid var(--line);text-align:center;padding:.75rem 0}
+  .rf:last-child{border-right:none}
+  .rf.on::after{display:none}
 
   /* PROFILE MODAL */
   .pmod-inner{padding:4rem 1.5rem 3rem}
@@ -431,9 +443,12 @@ footer{padding:3rem 3.5rem 2.2rem;border-top:1px solid var(--line)}
   /* MENTORSHIP PAGE */
   #mentPage .about-body{grid-template-columns:1fr}
   #mentPage .ment-grid{grid-template-columns:1fr}
+  .ment-intro{grid-template-columns:1fr!important;gap:2rem!important;padding:2.5rem 1.5rem!important}
 
   /* SOCIAL PAGE */
   #socialPage .about-body{grid-template-columns:1fr}
+  .social-story-col{display:none}
+  .social-featured-wrap{grid-template-columns:1fr;padding:2.5rem 1.5rem;gap:2rem}
 
   /* PAGE PADDING */
   #rosterPage,#aboutPage,#mentPage,#socialPage,#applyPage{padding-top:62px}
@@ -801,7 +816,7 @@ footer{padding:3rem 3.5rem 2.2rem;border-top:1px solid var(--line)}
       <h1 class="about-ht">MENTORSHIP</h1>
     </div>
   </div>
-  <div style="padding:4rem 3.5rem;display:grid;grid-template-columns:1fr 1fr;gap:5rem;border-bottom:1px solid var(--line)">
+  <div class="ment-intro">
     <div class="a-tx">
       <h3>Built for the Industry</h3>
       <p>Our mentorship program was designed for those serious about a career in modelling. Whether you're just starting out or looking to refine your technique, NDA's program gives you direct access to industry professionals, working photographers, and our global booking network.</p>
@@ -879,8 +894,8 @@ footer{padding:3rem 3.5rem 2.2rem;border-top:1px solid var(--line)}
       <div class="ssi"><img src="https://images.unsplash.com/photo-1581044777550-4cfa60707c03?w=500&q=80" alt=""><div class="ssi-ov">+</div></div>
     </div>
   </div>
-  <div style="padding:3.5rem 3.5rem;display:grid;grid-template-columns:1fr 1fr;gap:5rem;border-bottom:1px solid var(--line)">
-    <div>
+  <div class="social-featured-wrap">
+    <div class="social-story-col">
       <div class="sh" style="margin-bottom:1.5rem"><div class="sh-l"><div class="slabel">Featured Story</div></div></div>
       <div class="story" style="padding:0;grid-template-columns:1fr 1fr;gap:3rem;border:none">
         <div class="story-iw">
@@ -1136,17 +1151,18 @@ document.querySelectorAll('.mc').forEach(card=>{
 function toggleMC(card){
   const was=card.classList.contains('open');
   document.querySelectorAll('.mc').forEach(c=>{c.classList.remove('open','dim')});
-  if(!was){card.classList.add('open');document.querySelectorAll('.mc').forEach(c=>{if(c!==card)c.classList.add('dim')});}
+  if(!was){card.classList.add('open');document.querySelectorAll('.mc').forEach(c=>{if(c!==card&&!c.classList.contains('filt-out'))c.classList.add('dim')});}
 }
 function filtMod(btn,cat){
   document.querySelectorAll('.mf').forEach(b=>b.classList.remove('on'));
   btn.classList.add('on');
   document.querySelectorAll('.mc').forEach(c=>{
     const show=cat==='all'||c.dataset.cat===cat;
-    c.style.opacity=show?'1':'0.1';c.style.transition='opacity .4s';
+    c.classList.toggle('filt-out',!show);
     if(!show)c.classList.remove('open','dim');
   });
-  document.querySelectorAll('.mc').forEach(c=>c.classList.remove('dim'));
+  // clear any lingering dim state on visible cards
+  document.querySelectorAll('.mc:not(.filt-out)').forEach(c=>c.classList.remove('dim'));
 }
 
 // ── ROSTER ───────────────────────────────────────────────
