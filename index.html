@@ -59,7 +59,7 @@ nav.sl{background:rgba(244,241,236,.98);backdrop-filter:blur(14px);padding:1rem 
 
 /* ─── PAGE WRAPPERS ─────────────────────────────────── */
 #homePage{display:block}
-#rosterPage,#aboutPage{display:none}
+#aboutPage{display:none}
 
 /* ─── HERO ───────────────────────────────────────────── */
 .hero{position:relative;height:100vh;display:flex;overflow:hidden}
@@ -106,29 +106,6 @@ nav.sl{background:rgba(244,241,236,.98);backdrop-filter:blur(14px);padding:1rem 
 .va{font-size:8px;letter-spacing:.2em;color:var(--muted);text-decoration:none;border-bottom:1px solid rgba(28,28,28,.18);padding-bottom:2px;transition:all .2s;text-transform:uppercase;white-space:nowrap;cursor:pointer}
 .va:hover{color:var(--black);border-color:var(--black)}
 
-/* ─── MODEL CARDS (home) ─────────────────────────────── */
-.mfilt{display:flex;gap:0;margin-bottom:1.8rem;border-bottom:1px solid var(--line)}
-.mf{font-size:8px;letter-spacing:.2em;color:var(--muted);background:none;border:none;cursor:pointer;padding:.65rem 1.2rem;transition:all .2s;text-transform:uppercase;position:relative}
-.mf.on{color:var(--black)}
-.mf.on::after{content:'';position:absolute;bottom:-1px;left:0;right:0;height:1px;background:var(--accent)}
-.mgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:3px}
-.mc{position:relative;overflow:hidden;cursor:pointer;background:#ccc;user-select:none}
-.mc:nth-child(1){grid-row:span 2}
-.mc:nth-child(5){grid-column:span 2}
-.mc .mc-img{width:100%;height:100%;min-height:310px;object-fit:cover;object-position:center top;display:block;transition:transform .7s ease,filter .5s}
-.mc:nth-child(1) .mc-img{min-height:632px}
-.mc:nth-child(5) .mc-img{min-height:268px}
-.mc.dim{opacity:.15;transition:opacity .4s}
-.mc.filt-out{opacity:0.1;transition:opacity .4s;pointer-events:none}
-.mc-ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(20,18,16,.92) 0%,rgba(20,18,16,.04) 55%,transparent 100%);opacity:0;transition:opacity .4s}
-.mc.open .mc-ov{opacity:1}
-.mc-inf{position:absolute;bottom:0;left:0;right:0;padding:1.1rem 1rem;transform:translateY(7px);opacity:0;transition:all .4s;pointer-events:none}
-.mc.open .mc-inf{transform:translateY(0);opacity:1;pointer-events:auto}
-.mc-hint{position:absolute;top:.7rem;right:.7rem;font-size:6.5px;letter-spacing:.14em;color:rgba(244,241,236,.45);opacity:0;transition:opacity .3s;text-transform:uppercase}
-.mc.open .mc-hint{opacity:1}
-.mc-tag{font-size:6.5px;letter-spacing:.2em;color:var(--accent);margin-bottom:3px;text-transform:uppercase;font-weight:700}
-.mc-name{font-family:'Bebas Neue',sans-serif;font-size:17px;letter-spacing:.08em;line-height:1;margin-bottom:3px;overflow:visible;color:#f4f1ec}
-.mc-stats{font-size:6.5px;letter-spacing:.06em;color:rgba(244,241,236,.75);line-height:1.8}
 
 /* ─── PRESS ──────────────────────────────────────────── */
 .press-wrap{background:var(--card);padding:3rem 3.5rem}
@@ -213,58 +190,7 @@ footer{padding:3rem 3.5rem 2.2rem;border-top:1px solid var(--line)}
 .f-soc a{font-size:7.5px;letter-spacing:.15em;color:var(--muted);text-decoration:none;transition:color .2s;text-transform:uppercase}
 .f-soc a:hover{color:var(--black)}
 
-/* ─── ROSTER PAGE ────────────────────────────────────── */
-#rosterPage{min-height:100vh;padding-top:78px;background:var(--bg)}
-.rh{padding:2rem 3.5rem 0;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:flex-end}
-.rh-left{}
-.r-agency{font-size:7.5px;letter-spacing:.3em;color:var(--accent);text-transform:uppercase;margin-bottom:.4rem}
-.r-ttl{font-family:'Bebas Neue',sans-serif;font-size:clamp(34px,5vw,58px);line-height:.95;overflow:visible;margin-bottom:1.2rem}
-.r-ttl em{font-style:italic;font-family:'Playfair Display',serif;color:var(--accent);font-size:.82em}
-.rfilt{display:flex;gap:0}
-.rf{font-size:8px;letter-spacing:.24em;color:var(--muted);background:none;border:none;cursor:pointer;padding:.75rem 1.4rem;transition:all .2s;text-transform:uppercase;position:relative;border-bottom:1px solid transparent}
-.rf.on{color:var(--black);border-bottom-color:var(--accent)}
-/* 6-column roster grid */
-.rgrid{display:grid;grid-template-columns:repeat(6,1fr)}
-.rc{border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
-.rc:nth-child(6n){border-right:none}
-.rc-img{position:relative;overflow:hidden;aspect-ratio:2/3;cursor:pointer}
-.rc-img img{width:100%;height:100%;object-fit:cover;object-position:center top;transition:transform .6s,filter .4s;display:block}
-.rc-img:hover img{transform:scale(1.04);filter:brightness(.82)}
-.rc-txt{padding:2rem 1.6rem;cursor:pointer;transition:background .2s;display:flex;flex-direction:column;justify-content:center;min-height:0;background:var(--bg)}
-.rc-txt:hover{background:rgba(28,28,28,.025)}
-.rc-tag{font-size:6.5px;letter-spacing:.24em;color:var(--accent);text-transform:uppercase;margin-bottom:.4rem}
-.rc-name{font-family:'Bebas Neue',sans-serif;font-size:clamp(18px,2vw,26px);letter-spacing:.04em;overflow:visible;line-height:1.05;margin-bottom:.8rem}
-.rc-meas{font-size:7.5px;letter-spacing:.06em;color:var(--muted);line-height:2.1}
 
-/* ─── PROFILE MODAL ──────────────────────────────────── */
-.pmod{position:fixed;inset:0;z-index:2000;background:var(--bg);display:none;overflow-y:auto}
-.pmod.on{display:block}
-.pmod-close{position:fixed;top:1.4rem;right:3rem;z-index:2010;background:none;border:none;color:var(--muted);font-size:9px;letter-spacing:.25em;text-transform:uppercase;cursor:pointer;transition:color .2s}
-.pmod-close:hover{color:var(--black)}
-.pmod-inner{max-width:1080px;margin:0 auto;padding:4.5rem 3.5rem 5rem}
-.ph{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start;margin-bottom:4.5rem}
-.ph-img{width:100%;aspect-ratio:2/3;object-fit:cover;object-position:center top;display:block}
-.ph-head{padding-top:2.5rem}
-.ph-agency{font-size:7.5px;letter-spacing:.3em;color:var(--accent);text-transform:uppercase;margin-bottom:.7rem}
-.ph-name{font-family:'Bebas Neue',sans-serif;font-size:clamp(44px,6vw,74px);line-height:.9;overflow:visible;padding-bottom:.05em;margin-bottom:1.8rem}
-.ph-sg{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--line);margin-bottom:1.8rem}
-.ph-s{padding:.9rem 1.1rem;border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
-.ph-s:nth-child(2n){border-right:none}
-.ph-s:nth-last-child(-n+2){border-bottom:none}
-.ph-sl{font-size:6.5px;letter-spacing:.2em;color:var(--accent);text-transform:uppercase;margin-bottom:3px}
-.ph-sv{font-size:11px;letter-spacing:.05em;font-weight:500}
-.ph-bio{font-size:11.5px;color:var(--muted);line-height:1.9;margin-bottom:1.6rem}
-.ph-tags{display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:1.8rem}
-.ph-tag{font-size:6.5px;letter-spacing:.14em;text-transform:uppercase;padding:.3rem .7rem;border:1px solid var(--line);color:var(--muted)}
-.ph-lbl{font-size:7.5px;letter-spacing:.28em;color:var(--accent);text-transform:uppercase;margin-bottom:1rem;display:flex;align-items:center;gap:.7rem}
-.ph-lbl::before{content:'';width:14px;height:1px;background:var(--accent)}
-.ph-camps{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;margin-bottom:4rem}
-.ph-ci{width:100%;aspect-ratio:3/4;object-fit:cover;object-position:center top;display:block;transition:transform .5s,filter .4s}
-.ph-ci:hover{transform:scale(1.03);filter:brightness(.82)}
-.ph-creds{margin-bottom:3rem}
-.ph-cr{display:flex;justify-content:space-between;align-items:center;padding:.75rem 0;border-bottom:1px solid var(--line)}
-.ph-crb{font-size:10.5px;letter-spacing:.07em}
-.ph-crs{font-size:8.5px;letter-spacing:.1em;color:var(--muted)}
 
 /* ─── PRESS MODAL ────────────────────────────────────── */
 .prmod{position:fixed;inset:0;z-index:3000;background:rgba(244,241,236,.97);display:none;flex-direction:column;align-items:center;justify-content:center}
@@ -369,20 +295,6 @@ footer{padding:3rem 3.5rem 2.2rem;border-top:1px solid var(--line)}
   .sec{padding:2.5rem 1.5rem}
   .sh{flex-wrap:wrap;gap:.8rem;margin-bottom:1.4rem}
 
-  /* MODEL FILTER */
-  .mfilt{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--line);border-bottom:none;margin-bottom:1.4rem}
-  .mf{border-right:1px solid var(--line);border-bottom:1px solid var(--line);padding:.7rem 0;font-size:7px;letter-spacing:.08em;text-align:center}
-  .mf:nth-child(2n){border-right:none}
-  .mf.on::after{display:none}
-  .mf.on{background:rgba(138,117,96,.07)}
-
-  /* MODEL GRID */
-  .mgrid{grid-template-columns:repeat(2,1fr)}
-  .mc:nth-child(1){grid-row:span 1}
-  .mc:nth-child(5){grid-column:span 1}
-  .mc .mc-img{min-height:220px}
-  .mc:nth-child(1) .mc-img{min-height:220px}
-  .mc:nth-child(5) .mc-img{min-height:220px}
 
   /* PRESS */
   .press-wrap{padding:2.5rem 1.5rem}
@@ -422,22 +334,6 @@ footer{padding:3rem 3.5rem 2.2rem;border-top:1px solid var(--line)}
   .ft{grid-template-columns:1fr 1fr;gap:1.5rem}
   .fb{flex-direction:column;gap:.8rem;text-align:center}
 
-  /* ROSTER */
-  .rh{flex-direction:column;align-items:flex-start;gap:1rem;padding:1.5rem 1.5rem 0}
-  .rgrid{grid-template-columns:repeat(2,1fr)}
-  .rc-txt{padding:1.4rem 1rem;min-height:0}
-  .rc-name{font-size:15px}
-  .rc-meas{font-size:6.5px}
-  .rfilt{padding:0;border:1px solid var(--line);margin:0 1.5rem;flex-wrap:nowrap}
-  .rf{flex:1;min-width:0;border-right:1px solid var(--line);text-align:center;padding:.7rem 0;font-size:7px;letter-spacing:.06em}
-  .rf:last-child{border-right:none}
-  .rf.on::after{display:none}
-
-  /* PROFILE MODAL */
-  .pmod-inner{padding:4rem 1.5rem 3rem}
-  .ph{grid-template-columns:1fr;gap:2rem}
-  .ph-camps{grid-template-columns:repeat(3,1fr)}
-  .ph-name{font-size:clamp(36px,9vw,56px)}
 
   /* ABOUT */
   .about-hc{padding:2rem 1.5rem}
@@ -458,7 +354,7 @@ footer{padding:3rem 3.5rem 2.2rem;border-top:1px solid var(--line)}
   .social-featured-wrap{grid-template-columns:1fr;padding:2.5rem 1.5rem;gap:2rem}
 
   /* PAGE PADDING */
-  #rosterPage,#aboutPage,#mentPage,#socialPage,#applyPage{padding-top:62px}
+  #aboutPage,#mentPage,#socialPage,#applyPage{padding-top:62px}
   /* APPLY FORM */
   #applyPage>div:last-of-type{padding:2.5rem 1.5rem}
   #applyForm>div[style*="grid-template-columns:1fr 1fr 1fr"]{grid-template-columns:1fr!important}
@@ -485,7 +381,6 @@ footer{padding:3rem 3.5rem 2.2rem;border-top:1px solid var(--line)}
 <nav id="nav">
   <span class="nav-logo" onclick="goHome()">NDA</span>
   <div class="nav-ctr">
-    <a onclick="goRoster()" id="nMod">Models</a>
     <a onclick="goMent()" id="nMent">Mentorship</a>
     <a onclick="goSocial()" id="nSoc">Social</a>
     <a onclick="goAbout()" id="nAbt">About Us</a>
@@ -506,7 +401,6 @@ footer{padding:3rem 3.5rem 2.2rem;border-top:1px solid var(--line)}
   <button class="mob-nav-close" onclick="toggleMenu()">&times;</button>
   <div class="mob-nav-logo">NDA</div>
   <div class="mob-nav-grid">
-    <a onclick="goRoster();toggleMenu()">Models</a>
     <a onclick="goMent();toggleMenu()">Mentorship</a>
     <a onclick="goSocial();toggleMenu()">Social</a>
     <a onclick="goAbout();toggleMenu()">About Us</a>
@@ -569,69 +463,6 @@ footer{padding:3rem 3.5rem 2.2rem;border-top:1px solid var(--line)}
   <div class="stat"><div class="stat-n">500<sup>+</sup></div><div class="stat-l">Show bookings this season</div></div>
   <div class="stat"><div class="stat-n">15<sup>+</sup></div><div class="stat-l">Years of excellence</div></div>
 </div>
-
-<!-- MODELS GRID -->
-<section class="sec" id="models">
-  <div class="sh rv">
-    <div class="sh-l">
-      <div class="slabel">Our Roster</div>
-    </div>
-    <span class="va" onclick="goRoster()">View Full Roster</span>
-  </div>
-  <div class="mfilt rv">
-    <button class="mf on" onclick="filtMod(this,'all')">All</button>
-    <button class="mf" onclick="filtMod(this,'she')">She</button>
-    <button class="mf" onclick="filtMod(this,'he')">He</button>
-    <button class="mf" onclick="filtMod(this,'they')">They</button>
-  </div>
-  <div class="mgrid rv">
-    <div class="mc" data-cat="she" data-id="0">
-      <img class="mc-img" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=700&q=85" alt="">
-      <div class="mc-ov"></div><div class="mc-hint">double-click for profile</div>
-      <div class="mc-inf"><div class="mc-tag">SHE</div><div class="mc-name">VIVIENNE ROHNER</div><div class="mc-stats">6'0'' &middot; B32½ &middot; W25 &middot; H34½<br>Light Brown &middot; Green</div></div>
-    </div>
-    <div class="mc" data-cat="she" data-id="1">
-      <img class="mc-img" src="https://images.unsplash.com/photo-1566206091558-7f218b696731?w=700&q=85" alt="">
-      <div class="mc-ov"></div><div class="mc-hint">double-click for profile</div>
-      <div class="mc-inf"><div class="mc-tag">SHE</div><div class="mc-name">RIVER KLEIN</div><div class="mc-stats">5'9½'' &middot; B29 &middot; W23 &middot; H34<br>Brown &middot; Brown</div></div>
-    </div>
-    <div class="mc" data-cat="he" data-id="2">
-      <img class="mc-img" src="https://images.unsplash.com/photo-1552374196-1ab2a1c593e8?w=700&q=85" alt="">
-      <div class="mc-ov"></div><div class="mc-hint">double-click for profile</div>
-      <div class="mc-inf"><div class="mc-tag">HE</div><div class="mc-name">ELVIS CANDY</div><div class="mc-stats">6'2½'' &middot; C35 &middot; W31 &middot; H35½<br>Dark Brown &middot; Brown</div></div>
-    </div>
-    <div class="mc" data-cat="she" data-id="3">
-      <img class="mc-img" src="https://images.unsplash.com/photo-1487222477894-8943e31ef7b2?w=700&q=85" alt="">
-      <div class="mc-ov"></div><div class="mc-hint">double-click for profile</div>
-      <div class="mc-inf"><div class="mc-tag">SHE</div><div class="mc-name">LIBBY BENNETT</div><div class="mc-stats">5'9½'' &middot; B31 &middot; W24 &middot; H34<br>Dark Blond &middot; Green</div></div>
-    </div>
-    <div class="mc" data-cat="he" data-id="4">
-      <img class="mc-img" src="https://images.unsplash.com/photo-1509631179647-0177331693ae?w=700&q=85" alt="">
-      <div class="mc-ov"></div><div class="mc-hint">double-click for profile</div>
-      <div class="mc-inf"><div class="mc-tag">HE</div><div class="mc-name">JUSTICE JOSLIN</div><div class="mc-stats">6'1'' &middot; C40 &middot; W32 &middot; H38<br>Brown &middot; Blue</div></div>
-    </div>
-    <div class="mc" data-cat="she" data-id="5">
-      <img class="mc-img" src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?w=700&q=85" alt="">
-      <div class="mc-ov"></div><div class="mc-hint">double-click for profile</div>
-      <div class="mc-inf"><div class="mc-tag">SHE</div><div class="mc-name">APOLLINE ROCCO</div><div class="mc-stats">5'10'' &middot; B30½ &middot; W23½ &middot; H34½<br>Blond &middot; Blue Green</div></div>
-    </div>
-    <div class="mc" data-cat="she" data-id="6">
-      <img class="mc-img" src="https://images.unsplash.com/photo-1492707892479-7bc8d5a4ee93?w=700&q=85" alt="">
-      <div class="mc-ov"></div><div class="mc-hint">double-click for profile</div>
-      <div class="mc-inf"><div class="mc-tag">SHE</div><div class="mc-name">ACHOL KUIR</div><div class="mc-stats">5'10'' &middot; B30½ &middot; W23½ &middot; H34<br>Black &middot; Black</div></div>
-    </div>
-    <div class="mc" data-cat="he" data-id="7">
-      <img class="mc-img" src="https://images.unsplash.com/photo-1581044777550-4cfa60707c03?w=700&q=85" alt="">
-      <div class="mc-ov"></div><div class="mc-hint">double-click for profile</div>
-      <div class="mc-inf"><div class="mc-tag">HE</div><div class="mc-name">MATHIAS ROSEMOND</div><div class="mc-stats">5'11½'' &middot; C40 &middot; W24½<br>Brown &middot; Brown</div></div>
-    </div>
-    <div class="mc" data-cat="they" data-id="8">
-      <img class="mc-img" src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=700&q=85" alt="">
-      <div class="mc-ov"></div><div class="mc-hint">double-click for profile</div>
-      <div class="mc-inf"><div class="mc-tag">THEY</div><div class="mc-name">SAGE ELLERY</div><div class="mc-stats">5'11'' &middot; B31 &middot; W26 &middot; H35<br>Dark Brown &middot; Hazel</div></div>
-    </div>
-  </div>
-</section>
 
 <!-- PRESS -->
 <div class="press-wrap rv">
@@ -745,22 +576,6 @@ footer{padding:3rem 3.5rem 2.2rem;border-top:1px solid var(--line)}
 </footer>
 
 </div><!-- /homePage -->
-
-<!-- ══════════ ROSTER PAGE ═════════════════════════════ -->
-<div id="rosterPage">
-  <div class="rh">
-    <div class="rh-left">
-      <div class="r-agency">NDA Model Management</div>
-    </div>
-    <div class="rfilt">
-      <button class="rf on" onclick="filtRoster(this,'all')">All</button>
-      <button class="rf" onclick="filtRoster(this,'she')">She</button>
-      <button class="rf" onclick="filtRoster(this,'he')">He</button>
-      <button class="rf" onclick="filtRoster(this,'they')">They</button>
-    </div>
-  </div>
-  <div class="rgrid" id="rosterGrid"></div>
-</div>
 
 <!-- ══════════ ABOUT PAGE ══════════════════════════════ -->
 <div id="aboutPage">
@@ -1009,12 +824,6 @@ footer{padding:3rem 3.5rem 2.2rem;border-top:1px solid var(--line)}
   </div>
 </div>
 
-<!-- PROFILE MODAL -->
-<div class="pmod" id="pMod">
-  <button class="pmod-close" onclick="closePrfl()">&#8592; Back</button>
-  <div class="pmod-inner" id="pModInner"></div>
-</div>
-
 <!-- PRESS MODAL -->
 <div class="prmod" id="prMod">
   <button class="prmod-close" onclick="closePr()">Close &times;</button>
@@ -1031,18 +840,6 @@ footer{padding:3rem 3.5rem 2.2rem;border-top:1px solid var(--line)}
 
 <script>
 // ── DATA ─────────────────────────────────────────────────
-const models=[
-  {id:0,cat:'she',tag:'SHE',name:'Vivienne Rohner',img:'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=700&q=85',fullImg:'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=1000&q=90',height:"6' 0''",bust:'B32½',waist:'W25',hips:'H34½',hair:'Light Brown',eyes:'Green',shoe:'S 10',agency:'NDA — New York',bio:"Vivienne Rohner is one of NDA's most sought-after talents. Discovered in Zurich at 16, she has since graced covers for Vogue Paris, W Magazine, and Numero. Known for her ethereal presence and technical precision on the runway, Vivienne has opened and closed for Valentino, Chanel, and Prada across four consecutive seasons.",tags:['Editorial','Runway','Commercial','Cover'],campaigns:['https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=500&q=80','https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=500&q=80','https://images.unsplash.com/photo-1529139574466-a303027c1d8b?w=500&q=80'],credits:[{brand:'Valentino',season:'SS26 Runway — Opener'},{brand:'Chanel',season:'AW25 Runway'},{brand:'Prada',season:'SS25 Campaign'},{brand:'Vogue Paris',season:'March 2025 Cover'},{brand:'W Magazine',season:'September 2024 Editorial'}]},
-  {id:1,cat:'she',tag:'SHE',name:'River Klein',img:'https://images.unsplash.com/photo-1566206091558-7f218b696731?w=700&q=85',fullImg:'https://images.unsplash.com/photo-1566206091558-7f218b696731?w=1000&q=90',height:"5' 9½''",bust:'B29',waist:'W23',hips:'H34',hair:'Brown',eyes:'Brown',shoe:'S 9',agency:'NDA — London',bio:"River Klein brings an effortless edge to every project. The London-based model made her debut at NDA in 2023 and quickly became a fixture in the contemporary editorial world. Her expressive features and natural ease in front of the lens have earned her campaigns with Dazed, Vogue UK, and a breakout runway appearance at Chanel.",tags:['Editorial','Runway','New Faces'],campaigns:['https://images.unsplash.com/photo-1492707892479-7bc8d5a4ee93?w=500&q=80','https://images.unsplash.com/photo-1496747611176-843222e1e57c?w=500&q=80','https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=500&q=80'],credits:[{brand:'Chanel',season:'PFW AW25 — Debut'},{brand:'Dazed',season:'Spring 2025 Issue'},{brand:'Vogue UK',season:'June 2025 Editorial'},{brand:'Missoni',season:'SS25 Campaign'}]},
-  {id:2,cat:'he',tag:'HE',name:'Elvis Candy',img:'https://images.unsplash.com/photo-1552374196-1ab2a1c593e8?w=700&q=85',fullImg:'https://images.unsplash.com/photo-1552374196-1ab2a1c593e8?w=1000&q=90',height:"6' 2½''",chest:'C35',waist:'W31',hips:'H35½',hair:'Dark Brown',eyes:'Brown',shoe:'S 11',agency:'NDA — Milan',bio:"Elvis Candy is the definition of versatile. Equally at home in haute couture and streetwear editorial, the Milan-based model has headlined GQ, appeared in Dior's global campaign, and closed multiple shows across Milan and Paris Fashion Weeks. A former athlete, his physicality gives him a commanding presence both on the runway and in front of the lens.",tags:['Runway','Editorial','Commercial','Fitness'],campaigns:['https://images.unsplash.com/photo-1509631179647-0177331693ae?w=500&q=80','https://images.unsplash.com/photo-1581044777550-4cfa60707c03?w=500&q=80','https://images.unsplash.com/photo-1552374196-1ab2a1c593e8?w=500&q=80'],credits:[{brand:'Dior Homme',season:'SS26 Global Campaign'},{brand:'GQ',season:'May 2025 Cover'},{brand:'Saint Laurent',season:'AW25 Runway — Closer'},{brand:'Fendi',season:'MFW SS26'},{brand:'System Magazine',season:'Issue 14 Editorial'}]},
-  {id:3,cat:'she',tag:'SHE',name:'Libby Bennett',img:'https://images.unsplash.com/photo-1487222477894-8943e31ef7b2?w=700&q=85',fullImg:'https://images.unsplash.com/photo-1487222477894-8943e31ef7b2?w=1000&q=90',height:"5' 9½''",bust:'B31',waist:'W24',hips:'H34',hair:'Dark Blond',eyes:'Green',shoe:'S 9½',agency:'NDA — New York',bio:"Libby Bennett carries a warmth that translates beautifully both on film and in print. Signed with NDA New York, she splits her time between editorial work and commercial campaigns, bringing an approachable energy to every set. Her credits include Harper's Bazaar, Michael Kors, and a breakout campaign for Prabal Gurung.",tags:['Commercial','Editorial','Lifestyle'],campaigns:['https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=500&q=80','https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=500&q=80','https://images.unsplash.com/photo-1487222477894-8943e31ef7b2?w=500&q=80'],credits:[{brand:"Harper's Bazaar",season:'February 2025 Editorial'},{brand:'Michael Kors',season:'SS25 Campaign'},{brand:'Prabal Gurung',season:'NYFW SS26'},{brand:'Marc Jacobs',season:'AW25 Look Book'}]},
-  {id:4,cat:'he',tag:'HE',name:'Justice Joslin',img:'https://images.unsplash.com/photo-1509631179647-0177331693ae?w=700&q=85',fullImg:'https://images.unsplash.com/photo-1509631179647-0177331693ae?w=1000&q=90',height:"6' 1''",chest:'C40',waist:'W32',hips:'H38',hair:'Brown',eyes:'Blue',shoe:'S 11½',agency:'NDA — Paris',bio:"Justice Joslin is power and poetry in equal measure. Paris-based and globally booked, he is one of NDA's most decorated male talents. A striking combination of angular features and natural ease, Justice has headlined campaigns for Jil Sander, Ferragamo, and Valentino, and is a runway fixture at the top houses during Paris and Milan Fashion Weeks.",tags:['Runway','Editorial','Luxury'],campaigns:['https://images.unsplash.com/photo-1552374196-1ab2a1c593e8?w=500&q=80','https://images.unsplash.com/photo-1581044777550-4cfa60707c03?w=500&q=80','https://images.unsplash.com/photo-1509631179647-0177331693ae?w=500&q=80'],credits:[{brand:'Valentino',season:'PFW AW25 — Opener'},{brand:'Jil Sander',season:'SS26 Campaign'},{brand:'Ferragamo',season:'MFW AW25'},{brand:'Numéro Homme',season:'Issue 22 Cover'},{brand:'Gucci',season:'SS25 Global Lookbook'}]},
-  {id:5,cat:'she',tag:'SHE',name:'Apolline Rocco',img:'https://images.unsplash.com/photo-1496747611176-843222e1e57c?w=700&q=85',fullImg:'https://images.unsplash.com/photo-1496747611176-843222e1e57c?w=1000&q=90',height:"5' 10''",bust:'B30½',waist:'W23½',hips:'H34½',hair:'Blond',eyes:'Blue Green',shoe:'S 10',agency:'NDA — Paris',bio:"Apolline Rocco Fohrer opened for Valentino at MFW SS26 — a moment that announced her arrival to the global stage. Part Parisian elegance, part raw edge, Apolline brings an effortless bilingual sophistication to every project. Her portfolio spans high fashion editorial, luxury campaigns, and prestigious runway appearances across all four fashion capitals.",tags:['Runway','Editorial','Cover','Luxury'],campaigns:['https://images.unsplash.com/photo-1529139574466-a303027c1d8b?w=500&q=80','https://images.unsplash.com/photo-1566206091558-7f218b696731?w=500&q=80','https://images.unsplash.com/photo-1496747611176-843222e1e57c?w=500&q=80'],credits:[{brand:'Valentino',season:'MFW SS26 — Opener'},{brand:'Gucci',season:'SS26 Campaign'},{brand:'Numéro',season:'April 2025 Cover'},{brand:'Missoni',season:'AW25 Runway'},{brand:'Chanel',season:'Couture SS25'}]},
-  {id:6,cat:'she',tag:'SHE',name:'Achol Kuir',img:'https://images.unsplash.com/photo-1492707892479-7bc8d5a4ee93?w=700&q=85',fullImg:'https://images.unsplash.com/photo-1492707892479-7bc8d5a4ee93?w=1000&q=90',height:"5' 10''",bust:'B30½',waist:'W23½',hips:'H34',hair:'Black',eyes:'Black',shoe:'S 9',agency:'NDA — London',bio:"Achol Kuir is a force of quiet intensity. Born in South Sudan and raised in London, she brings a depth and presence to every frame that transcends fashion. Having closed for Gucci at SS26, Achol is now one of the most requested models across London, New York, and Paris. Her editorial work is celebrated for its emotional honesty and cinematic power.",tags:['Runway','Editorial','Cover','Artistic'],campaigns:['https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=500&q=80','https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=500&q=80','https://images.unsplash.com/photo-1492707892479-7bc8d5a4ee93?w=500&q=80'],credits:[{brand:'Gucci',season:'MFW SS26 — Closer'},{brand:'Vogue UK',season:'September 2025 Cover'},{brand:'Dazed',season:'Issue 50 Cover Story'},{brand:'Prada',season:'AW25 Campaign'},{brand:'Fendi',season:'SS26 Runway'}]},
-  {id:7,cat:'he',tag:'HE',name:'Mathias Rosemond',img:'https://images.unsplash.com/photo-1581044777550-4cfa60707c03?w=700&q=85',fullImg:'https://images.unsplash.com/photo-1581044777550-4cfa60707c03?w=1000&q=90',height:"5' 11½''",chest:'C40',waist:'W24½',hips:'—',hair:'Brown',eyes:'Brown',shoe:'S 10½',agency:'NDA — Milan',bio:"Mathias Rosemond emerged from NDA's mentorship program and never looked back. His chiseled symmetry and camera-ready instincts have made him one of the most booked male models of his generation. Milan-based but globally active, Mathias has fronted campaigns for Dolce & Gabbana, Versace, and Armani, and walked for over twenty houses in his debut season.",tags:['Runway','Commercial','Fitness','Luxury'],campaigns:['https://images.unsplash.com/photo-1509631179647-0177331693ae?w=500&q=80','https://images.unsplash.com/photo-1552374196-1ab2a1c593e8?w=500&q=80','https://images.unsplash.com/photo-1581044777550-4cfa60707c03?w=500&q=80'],credits:[{brand:'Versace',season:'MFW SS26 Campaign'},{brand:'Armani',season:'AW25 Runway'},{brand:'Dolce & Gabbana',season:'SS25 Global Campaign'},{brand:'GQ Italia',season:'July 2025 Cover'},{brand:'Missoni',season:'SS26 Lookbook'}]},
-  {id:8,cat:'they',tag:'THEY',name:'Sage Ellery',img:'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=700&q=85',fullImg:'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=1000&q=90',height:"5' 11''",bust:'B31',waist:'W26',hips:'H35',hair:'Dark Brown',eyes:'Hazel',shoe:'S 9½',agency:'NDA — New York',bio:"Sage Ellery defies category in the most compelling way. New York-based and globally in demand, they move between editorial, commercial, and runway with an ease that few possess. Their androgynous presence and expressive range have made them one of the most exciting new signings on the NDA board, earning campaigns with Valentino Beauty and a debut cover for Dazed.",tags:['Editorial','Runway','Cover','Commercial'],campaigns:['https://images.unsplash.com/photo-1529139574466-a303027c1d8b?w=500&q=80','https://images.unsplash.com/photo-1566206091558-7f218b696731?w=500&q=80','https://images.unsplash.com/photo-1487222477894-8943e31ef7b2?w=500&q=80'],credits:[{brand:'Valentino Beauty',season:'SS26 Global Campaign'},{brand:'Dazed',season:'Issue 51 Cover'},{brand:'Marc Jacobs',season:'SS26 Runway'},{brand:'Vogue US',season:'March 2026 Editorial'},{brand:'Fendi',season:'AW25 Lookbook'}]}
-];
-
 const pressStories={
   'VOGUE':[{img:'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=600&q=80',tag:'Cover Feature',title:'Vivienne Rohner: The Quietest Storm in Fashion',date:'March 2025'},{img:'https://images.unsplash.com/photo-1492707892479-7bc8d5a4ee93?w=600&q=80',tag:'Editorial',title:'Achol Kuir and the New Language of Beauty',date:'September 2025'},{img:'https://images.unsplash.com/photo-1496747611176-843222e1e57c?w=600&q=80',tag:'Season Preview',title:'The NDA Talent Shaping SS26',date:'January 2026'}],
   'DAZED':[{img:'https://images.unsplash.com/photo-1492707892479-7bc8d5a4ee93?w=600&q=80',tag:'Cover Story',title:'Achol Kuir — Issue 50',date:'Spring 2025'},{img:'https://images.unsplash.com/photo-1566206091558-7f218b696731?w=600&q=80',tag:'New Faces',title:'River Klein: Quiet Arrival, Loud Presence',date:'Summer 2025'},{img:'https://images.unsplash.com/photo-1552374196-1ab2a1c593e8?w=600&q=80',tag:'Editorial',title:'Elvis Candy — Body & Form',date:'AW25 Issue'}],
@@ -1079,14 +876,6 @@ function goHome(){
   document.getElementById('nav').classList.remove('sl','sc');
   window.scrollTo({top:0,behavior:'smooth'});
 }
-function goRoster(){
-  hideAll();
-  document.getElementById('rosterPage').style.display='block';
-  document.getElementById('nav').classList.add('sl');
-  document.getElementById('nMod').classList.add('on');
-  window.scrollTo({top:0,behavior:'instant'});
-  buildRoster('all');
-}
 function goAbout(){
   hideAll();
   document.getElementById('aboutPage').style.display='block';
@@ -1120,7 +909,7 @@ function submitApp(e){
   document.getElementById('applyThanks').style.display='block';
 }
 function hideAll(){
-  ['homePage','rosterPage','aboutPage','mentPage','socialPage','applyPage'].forEach(id=>{
+  ['homePage','aboutPage','mentPage','socialPage','applyPage'].forEach(id=>{
     document.getElementById(id).style.display='none';
   });
   document.querySelectorAll('.nav-ctr a').forEach(a=>a.classList.remove('on'));
@@ -1146,87 +935,6 @@ function slide(id,ms){
   setInterval(()=>{imgs[c].classList.remove('on');c=(c+1)%imgs.length;imgs[c].classList.add('on');},ms);
 }
 slide('sfLeft',5800);slide('sfTop',4500);slide('sfBot',6200);
-
-// ── HOME MODEL CARDS ─────────────────────────────────────
-let ct=null;
-document.querySelectorAll('.mc').forEach(card=>{
-  card.addEventListener('click',()=>{
-    if(ct){clearTimeout(ct);ct=null;openProfile(+card.dataset.id);return;}
-    ct=setTimeout(()=>{ct=null;toggleMC(card);},260);
-  });
-});
-function toggleMC(card){
-  const was=card.classList.contains('open');
-  document.querySelectorAll('.mc').forEach(c=>{c.classList.remove('open','dim')});
-  if(!was){card.classList.add('open');document.querySelectorAll('.mc').forEach(c=>{if(c!==card&&!c.classList.contains('filt-out'))c.classList.add('dim')});}
-}
-function filtMod(btn,cat){
-  document.querySelectorAll('.mf').forEach(b=>b.classList.remove('on'));
-  btn.classList.add('on');
-  document.querySelectorAll('.mc').forEach(c=>{
-    const show=cat==='all'||c.dataset.cat===cat;
-    c.classList.toggle('filt-out',!show);
-    if(!show)c.classList.remove('open','dim');
-  });
-  // clear any lingering dim state on visible cards
-  document.querySelectorAll('.mc:not(.filt-out)').forEach(c=>c.classList.remove('dim'));
-}
-
-// ── ROSTER ───────────────────────────────────────────────
-function buildRoster(cat){
-  const grid=document.getElementById('rosterGrid');
-  grid.innerHTML='';
-  const list=cat==='all'?models:models.filter(m=>m.cat===cat);
-  list.forEach((m,i)=>{
-    const imgDiv=document.createElement('div');
-    imgDiv.className='rc rc-img';
-    imgDiv.innerHTML=`<img src="${m.img}" alt="${m.name}">`;
-    imgDiv.onclick=()=>openProfile(m.id);
-
-    const meas=m.cat==='she'
-      ?`${m.height}<br>${m.bust} / ${m.waist} / ${m.hips}<br>${m.shoe}<br>${m.hair}<br>${m.eyes}`
-      :`${m.height}<br>${m.chest||''} / ${m.waist} / ${m.hips}<br>${m.shoe}<br>${m.hair}<br>${m.eyes}`;
-
-    const txtDiv=document.createElement('div');
-    txtDiv.className='rc rc-txt';
-    txtDiv.innerHTML=`<div class="rc-tag">${m.tag}</div><div class="rc-name">${m.name.toUpperCase()}</div><div class="rc-meas">${meas}</div>`;
-    txtDiv.onclick=()=>openProfile(m.id);
-
-    grid.appendChild(imgDiv);
-    grid.appendChild(txtDiv);
-  });
-}
-function filtRoster(btn,cat){
-  document.querySelectorAll('.rf').forEach(b=>b.classList.remove('on'));
-  btn.classList.add('on');
-  buildRoster(cat);
-}
-
-// ── PROFILE MODAL ────────────────────────────────────────
-function openProfile(id){
-  const m=models[id];if(!m)return;
-  const sr=m.cat==='she'||m.cat==='they'
-    ?`<div class="ph-s"><div class="ph-sl">Height</div><div class="ph-sv">${m.height}</div></div><div class="ph-s"><div class="ph-sl">Bust</div><div class="ph-sv">${m.bust}</div></div><div class="ph-s"><div class="ph-sl">Waist</div><div class="ph-sv">${m.waist}</div></div><div class="ph-s"><div class="ph-sl">Hips</div><div class="ph-sv">${m.hips}</div></div><div class="ph-s"><div class="ph-sl">Hair</div><div class="ph-sv">${m.hair}</div></div><div class="ph-s"><div class="ph-sl">Eyes</div><div class="ph-sv">${m.eyes}</div></div>`
-    :`<div class="ph-s"><div class="ph-sl">Height</div><div class="ph-sv">${m.height}</div></div><div class="ph-s"><div class="ph-sl">Chest</div><div class="ph-sv">${m.chest}</div></div><div class="ph-s"><div class="ph-sl">Waist</div><div class="ph-sv">${m.waist}</div></div><div class="ph-s"><div class="ph-sl">Hips</div><div class="ph-sv">${m.hips}</div></div><div class="ph-s"><div class="ph-sl">Hair</div><div class="ph-sv">${m.hair}</div></div><div class="ph-s"><div class="ph-sl">Eyes</div><div class="ph-sv">${m.eyes}</div></div>`;
-  document.getElementById('pModInner').innerHTML=`
-    <div class="ph">
-      <img class="ph-img" src="${m.fullImg}" alt="${m.name}">
-      <div class="ph-head">
-        <div class="ph-agency">${m.agency}</div>
-        <div class="ph-name">${m.name.toUpperCase()}</div>
-        <div class="ph-sg">${sr}</div>
-        <p class="ph-bio">${m.bio}</p>
-        <div class="ph-tags">${m.tags.map(t=>`<span class="ph-tag">${t}</span>`).join('')}</div>
-      </div>
-    </div>
-    <div class="ph-lbl">Campaigns &amp; Editorial</div>
-    <div class="ph-camps">${m.campaigns.map(s=>`<img class="ph-ci" src="${s}" alt="">`).join('')}</div>
-    <div class="ph-lbl">Selected Credits</div>
-    <div class="ph-creds">${m.credits.map(c=>`<div class="ph-cr"><span class="ph-crb">${c.brand}</span><span class="ph-crs">${c.season}</span></div>`).join('')}</div>`;
-  const mod=document.getElementById('pMod');
-  mod.classList.add('on');mod.scrollTop=0;
-}
-function closePrfl(){document.getElementById('pMod').classList.remove('on');}
 
 // ── PRESS MODAL ──────────────────────────────────────────
 let prOff=0,prTot=0;
@@ -1276,7 +984,7 @@ function stNav(d){goSt(curSt+d);}
 
 // ── KEY / CLICK CLOSES ───────────────────────────────────
 document.getElementById('prMod').addEventListener('click',function(e){if(e.target===this)closePr();});
-document.addEventListener('keydown',e=>{if(e.key==='Escape'){closePrfl();closePr();}});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closePr();});
 </script>
 </body>
 </html>
