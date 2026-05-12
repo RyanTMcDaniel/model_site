@@ -41,9 +41,6 @@ body{background:var(--bg);color:var(--black);font-family:'Inter',sans-serif;over
 #mainSite{opacity:0;transition:opacity 0.9s ease;pointer-events:none}
 #mainSite.on{opacity:1;pointer-events:auto}
 
-/* ─── CURSOR ─────────────────────────────────────────── */
-.cur{width:7px;height:7px;background:var(--accent);border-radius:50%;position:fixed;pointer-events:none;z-index:9999;mix-blend-mode:multiply;transition:transform .12s}
-.cur-r{width:32px;height:32px;border:1px solid rgba(138,117,96,.4);border-radius:50%;position:fixed;pointer-events:none;z-index:9998;transition:all .1s ease}
 
 /* ─── NAV ─────────────────────────────────────────────── */
 nav{position:fixed;top:0;left:0;right:0;z-index:1000;display:flex;justify-content:space-between;align-items:center;padding:1.4rem 3.5rem;transition:all .4s}
@@ -196,10 +193,10 @@ nav.sl{background:rgba(244,241,236,.98);backdrop-filter:blur(14px);padding:1rem 
 .scout-cnt{position:relative;z-index:2;padding:2.5rem}
 .scout-ttl{font-family:'Bebas Neue',sans-serif;font-size:clamp(44px,7.5vw,95px);line-height:.9;letter-spacing:.04em;margin-bottom:.9rem;overflow:visible;color:var(--black)}
 .scout-ttl em{color:var(--accent);font-style:italic;font-family:'Playfair Display',serif;font-size:.68em}
-.scout-sub{font-size:11.5px;color:var(--muted);max-width:440px;margin:0 auto 1.8rem;line-height:1.8}
-.scout-btn{display:inline-block;padding:.9rem 3.2rem;border:1px solid var(--accent);color:var(--accent);font-size:8.5px;letter-spacing:.25em;text-decoration:none;transition:all .35s;text-transform:uppercase;background:none;cursor:pointer}
-.scout-btn:hover{background:var(--accent);color:#fff}
-.scout-note{font-size:7.5px;letter-spacing:.12em;color:rgba(28,28,28,.28);margin-top:1rem;display:block}
+.scout-sub{font-size:11.5px;color:rgba(28,28,28,.75);max-width:440px;margin:0 auto 1.8rem;line-height:1.8;font-weight:500}
+.scout-btn{display:inline-block;padding:.9rem 3.2rem;border:1px solid var(--black);color:var(--black);font-size:8.5px;letter-spacing:.25em;text-decoration:none;transition:all .35s;text-transform:uppercase;background:none;cursor:pointer;font-weight:600}
+.scout-btn:hover{background:var(--black);color:var(--bg)}
+.scout-note{font-size:8px;letter-spacing:.12em;color:rgba(28,28,28,.55);margin-top:1rem;display:block;font-weight:500}
 
 /* ─── FOOTER ─────────────────────────────────────────── */
 footer{padding:3rem 3.5rem 2.2rem;border-top:1px solid var(--line)}
@@ -318,12 +315,127 @@ footer{padding:3rem 3.5rem 2.2rem;border-top:1px solid var(--line)}
 /* ─── REVEAL ─────────────────────────────────────────── */
 .rv{opacity:0;transform:translateY(18px);transition:opacity .75s ease,transform .75s ease}
 .rv.in{opacity:1;transform:translateY(0)}
+
+/* ─── HAMBURGER ──────────────────────────────────────── */
+.hbg{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px;z-index:1100}
+.hbg span{display:block;width:22px;height:1.5px;background:var(--black);transition:all .3s}
+.mob-nav{position:fixed;inset:0;z-index:1050;background:var(--bg);display:none;flex-direction:column;align-items:center;justify-content:center;gap:0}
+.mob-nav.open{display:flex}
+.mob-nav-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;width:100%;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.mob-nav-grid a{font-size:11px;letter-spacing:.22em;color:var(--muted);text-decoration:none;text-transform:uppercase;padding:2rem 1.5rem;text-align:center;border-right:1px solid var(--line);transition:color .2s;cursor:pointer}
+.mob-nav-grid a:nth-child(2n){border-right:none}
+.mob-nav-grid a:hover{color:var(--black)}
+.mob-nav-logo{font-family:'Bebas Neue',sans-serif;font-size:28px;letter-spacing:.4em;margin-bottom:3rem;padding-right:.4em}
+.mob-nav-close{position:absolute;top:1.2rem;right:1.5rem;background:none;border:none;font-size:22px;color:var(--muted);cursor:pointer}
+.mob-nav-scout{margin-top:3rem;font-size:8px;letter-spacing:.2em;padding:.7rem 2rem;border:1px solid rgba(28,28,28,.25);color:var(--black);background:none;cursor:pointer;text-transform:uppercase}
+
+/* ─── MOBILE ─────────────────────────────────────────── */
+@media(max-width:768px){
+  /* NAV */
+  .nav-ctr,.nav-r{display:none}
+  .hbg{display:flex}
+  nav{padding:1rem 1.5rem}
+
+  /* HERO */
+  .hero{height:65vh;flex-direction:column}
+  .hero-l{width:100%;height:100%}
+  .hero-r{display:none}
+  .hero-cnt{padding:1.4rem 1.5rem}
+  .hero-title{font-size:clamp(26px,7vw,40px)}
+  .hero-meta{gap:1.2rem}
+
+  /* TICKER */
+  .ticker-t{font-size:7px;gap:2rem}
+
+  /* STATS */
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .stat{padding:1.5rem 1.2rem}
+  .stat-n{font-size:38px}
+
+  /* SECTIONS */
+  .sec{padding:2.5rem 1.5rem}
+  .sh{flex-wrap:wrap;gap:.8rem;margin-bottom:1.4rem}
+
+  /* MODEL GRID */
+  .mgrid{grid-template-columns:repeat(2,1fr)}
+  .mc:nth-child(1){grid-row:span 1}
+  .mc:nth-child(5){grid-column:span 1}
+  .mc .mc-img{min-height:220px}
+  .mc:nth-child(1) .mc-img{min-height:220px}
+  .mc:nth-child(5) .mc-img{min-height:220px}
+
+  /* PRESS */
+  .press-wrap{padding:2.5rem 1.5rem}
+  .pgrid{grid-template-columns:repeat(3,1fr)}
+  .pi{padding:1.2rem .8rem}
+  .ppub{font-size:13px}
+  .pct,.pcta{font-size:6px}
+
+  /* BRANDS */
+  .brands{padding:1.8rem 1.5rem}
+  .bn{font-size:17px;letter-spacing:.08em}
+  .brands-track{gap:2.5rem}
+
+  /* STORY */
+  .story{grid-template-columns:1fr;gap:2rem;padding:2.5rem 1.5rem}
+  .story-badge{right:0}
+
+  /* SOCIAL STRIP */
+  .sstrip{grid-template-columns:repeat(3,1fr)}
+  .sstrip-h{padding:1.8rem 1.5rem;flex-wrap:wrap;gap:.8rem}
+
+  /* MENTORSHIP */
+  .ment{padding:2.5rem 1.5rem}
+  .ment-grid{grid-template-columns:1fr;gap:2px}
+  .mcard{padding:1.5rem}
+  .mt{font-size:18px}
+  .md{font-size:10px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+
+  /* SCOUT */
+  .scout-ttl{font-size:clamp(36px,10vw,60px)}
+  .scout-cnt{padding:1.5rem}
+
+  /* FOOTER */
+  footer{padding:2rem 1.5rem}
+  .ft{grid-template-columns:1fr 1fr;gap:1.5rem}
+  .fb{flex-direction:column;gap:.8rem;text-align:center}
+
+  /* ROSTER */
+  .rh{flex-direction:column;align-items:flex-start;gap:1rem;padding:1.5rem 1.5rem 0}
+  .rgrid{grid-template-columns:repeat(2,1fr)}
+  .rc-txt{padding:1.4rem 1rem;min-height:0}
+  .rc-name{font-size:15px}
+  .rc-meas{font-size:6.5px}
+  .rfilt{padding:0 1.5rem}
+
+  /* PROFILE MODAL */
+  .pmod-inner{padding:4rem 1.5rem 3rem}
+  .ph{grid-template-columns:1fr;gap:2rem}
+  .ph-camps{grid-template-columns:repeat(3,1fr)}
+  .ph-name{font-size:clamp(36px,9vw,56px)}
+
+  /* ABOUT */
+  .about-hc{padding:2rem 1.5rem}
+  .about-body{grid-template-columns:1fr;gap:2rem;padding:2.5rem 1.5rem}
+  .about-vals{padding:0 1.5rem 2.5rem}
+  .aval-grid{grid-template-columns:1fr}
+  .about-team{padding:0 1.5rem 2.5rem}
+  .at-grid{grid-template-columns:repeat(2,1fr)}
+
+  /* MENTORSHIP PAGE */
+  #mentPage .about-body{grid-template-columns:1fr}
+  #mentPage .ment-grid{grid-template-columns:1fr}
+
+  /* SOCIAL PAGE */
+  #socialPage .about-body{grid-template-columns:1fr}
+
+  /* PAGE PADDING */
+  #rosterPage,#aboutPage,#mentPage,#socialPage{padding-top:62px}
+}
 </style>
 </head>
 <body>
 
-<div class="cur" id="cur"></div>
-<div class="cur-r" id="curR"></div>
 
 <!-- ══════════ SPLASH ══════════════════════════════════ -->
 <div id="splash" onclick="enter()">
@@ -352,7 +464,23 @@ footer{padding:3rem 3.5rem 2.2rem;border-top:1px solid var(--line)}
     </a>
     <button class="nav-scout">Get Scouted</button>
   </div>
+  <button class="hbg" id="hbg" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+
+<!-- MOBILE MENU -->
+<div class="mob-nav" id="mobNav">
+  <button class="mob-nav-close" onclick="toggleMenu()">&times;</button>
+  <div class="mob-nav-logo">NDA</div>
+  <div class="mob-nav-grid">
+    <a onclick="goRoster();toggleMenu()">Models</a>
+    <a onclick="goMent();toggleMenu()">Mentorship</a>
+    <a onclick="goSocial();toggleMenu()">Social</a>
+    <a onclick="goAbout();toggleMenu()">About Us</a>
+  </div>
+  <button class="mob-nav-scout" onclick="toggleMenu()">Get Scouted</button>
+</div>
 
 <!-- ══════════ HOME ════════════════════════════════════ -->
 <div id="homePage">
@@ -841,6 +969,11 @@ const stories=[
   {img:'https://images.unsplash.com/photo-1529139574466-a303027c1d8b?w=800&q=85',badge:'NEW<br>FACES<br>2026',title:'Meet the Class<br>of 2026 —<br><em>Rising Stars</em>',body:"Every season we introduce fresh talent that's about to reshape the industry. This year's new faces are raw, magnetic, and ready. Here's an introduction to the names you'll be seeing everywhere.",link:'Meet the class →'}
 ];
 
+// ── MOBILE MENU ──────────────────────────────────────────
+function toggleMenu(){
+  document.getElementById('mobNav').classList.toggle('open');
+}
+
 // ── SPLASH ───────────────────────────────────────────────
 function enter(){
   document.getElementById('splash').classList.add('out');
@@ -893,12 +1026,6 @@ function hideAll(){
   document.querySelectorAll('.nav-ctr a').forEach(a=>a.classList.remove('on'));
 }
 
-// ── CURSOR ───────────────────────────────────────────────
-const cur=document.getElementById('cur'),curR=document.getElementById('curR');
-document.addEventListener('mousemove',e=>{
-  cur.style.left=(e.clientX-3.5)+'px';cur.style.top=(e.clientY-3.5)+'px';
-  curR.style.left=(e.clientX-16)+'px';curR.style.top=(e.clientY-16)+'px';
-});
 
 // ── NAV SCROLL ───────────────────────────────────────────
 window.addEventListener('scroll',()=>{
