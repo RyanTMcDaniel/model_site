@@ -30,11 +30,10 @@ body{background:var(--bg);color:var(--black);font-family:'Inter',sans-serif;over
 }
 #splash.out{opacity:0;pointer-events:none}
 .splash-photo{position:absolute;inset:0}
-.splash-photo img{width:100%;height:100%;object-fit:cover;object-position:center;filter:brightness(.52) saturate(.6)}
-.splash-photo::after{content:'';position:absolute;inset:0;background:rgba(8,7,6,.28)}
-.splash-nda{position:relative;z-index:2;font-family:'Bebas Neue',sans-serif;font-size:clamp(90px,16vw,200px);letter-spacing:0.25em;color:#f4f1ec;line-height:1;padding-right:0.25em;user-select:none}
-.splash-sub{position:relative;z-index:2;font-size:8px;letter-spacing:0.4em;color:rgba(244,241,236,0.35);text-transform:uppercase;margin-top:1.5rem;animation:breathe 3s ease-in-out infinite}
-@keyframes breathe{0%,100%{opacity:.35}50%{opacity:.7}}
+.splash-photo img{width:100%;height:100%;object-fit:cover;object-position:center;filter:brightness(.48) saturate(.5);animation:kenburns 18s ease-in-out infinite alternate}
+.splash-photo::after{content:'';position:absolute;inset:0;background:rgba(8,7,6,.22)}
+@keyframes kenburns{0%{transform:scale(1) translate(0,0)}100%{transform:scale(1.1) translate(-1.5%,1%)}}
+.splash-nda{position:relative;z-index:2;font-family:'Bebas Neue',sans-serif;font-size:clamp(90px,16vw,200px);letter-spacing:0.25em;color:#f4f1ec;line-height:1;text-indent:0.25em;user-select:none;text-align:center}
 .splash-line{position:absolute;bottom:3rem;left:50%;transform:translateX(-50%);z-index:2;width:1px;height:40px;background:linear-gradient(to bottom,transparent,rgba(244,241,236,0.3));animation:lineGrow 2s ease-in-out infinite}
 @keyframes lineGrow{0%,100%{height:30px;opacity:.3}50%{height:50px;opacity:.7}}
 
@@ -226,7 +225,7 @@ footer{padding:3rem 3.5rem 2.2rem;border-top:1px solid var(--line)}
 .rfilt{display:flex;gap:0}
 .rf{font-size:8px;letter-spacing:.24em;color:var(--muted);background:none;border:none;cursor:pointer;padding:.75rem 1.4rem;transition:all .2s;text-transform:uppercase;position:relative;border-bottom:1px solid transparent}
 .rf.on{color:var(--black);border-bottom-color:var(--accent)}
-/* Heroes-style 6-column alternating grid */
+/* 6-column roster grid */
 .rgrid{display:grid;grid-template-columns:repeat(6,1fr)}
 .rc{border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
 .rc:nth-child(6n){border-right:none}
@@ -332,7 +331,6 @@ footer{padding:3rem 3.5rem 2.2rem;border-top:1px solid var(--line)}
     <img src="https://images.unsplash.com/photo-1501854140801-50d01698950b?w=1800&q=90" alt="">
   </div>
   <div class="splash-nda">NDA</div>
-  <div class="splash-sub">Model Management &nbsp;&middot;&nbsp; New York</div>
   <div class="splash-line"></div>
 </div>
 
@@ -362,10 +360,14 @@ footer{padding:3rem 3.5rem 2.2rem;border-top:1px solid var(--line)}
 <!-- HERO -->
 <section class="hero">
   <div class="hero-l">
-    <img class="hero-img" src="https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=1400&q=85" alt="">
+    <div class="sf" id="sfLeft">
+      <img src="https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=1400&q=85" class="on" alt="" style="object-position:center top">
+      <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=1400&q=85" alt="" style="object-position:center top">
+      <img src="https://images.unsplash.com/photo-1492707892479-7bc8d5a4ee93?w=1400&q=85" alt="" style="object-position:center top">
+    </div>
     <div class="hero-ov"></div>
     <div class="hero-cnt">
-      <h1 class="hero-title">THE FORCE<br>BEHIND <em>Fashion.</em></h1>
+      <h1 class="hero-title">Placeholder</h1>
       <div class="hero-meta">
         <div class="hero-mi"><strong>200+</strong>Models Worldwide</div>
         <div class="hero-mi"><strong>15+</strong>Years of Excellence</div>
@@ -463,6 +465,11 @@ footer{padding:3rem 3.5rem 2.2rem;border-top:1px solid var(--line)}
       <div class="mc-ov"></div><div class="mc-hint">double-click for profile</div>
       <div class="mc-inf"><div class="mc-tag">HE</div><div class="mc-name">MATHIAS ROSEMOND</div><div class="mc-stats">5'11½'' &middot; C40 &middot; W24½<br>Brown &middot; Brown</div></div>
     </div>
+    <div class="mc" data-cat="they" data-id="8">
+      <img class="mc-img" src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=700&q=85" alt="">
+      <div class="mc-ov"></div><div class="mc-hint">double-click for profile</div>
+      <div class="mc-inf"><div class="mc-tag">THEY</div><div class="mc-name">SAGE ELLERY</div><div class="mc-stats">5'11'' &middot; B31 &middot; W26 &middot; H35<br>Dark Brown &middot; Hazel</div></div>
+    </div>
   </div>
 </section>
 
@@ -507,7 +514,7 @@ footer{padding:3rem 3.5rem 2.2rem;border-top:1px solid var(--line)}
   <div class="rv">
     <div class="story-eye">Featured Story</div>
     <div id="stCont">
-      <h2 class="story-ttl" id="stTtl">Heroes Takes<br>Milan Fashion<br><em>Week SS26</em></h2>
+      <h2 class="story-ttl" id="stTtl">NDA at<br>Milan Fashion<br><em>Week SS26</em></h2>
       <p class="story-body" id="stBody">From the cobblestones of Milan to the front rows of Prada and Valentino — our models dominated every runway this season. Apolline opened for Valentino. Achol closed for Gucci. Elvis headlined GQ. This is what it looks like when a roster fires on all cylinders.</p>
       <a href="#" class="story-lnk" id="stLnk">Read the recap &rarr;</a>
     </div>
@@ -744,7 +751,7 @@ footer{padding:3rem 3.5rem 2.2rem;border-top:1px solid var(--line)}
         </div>
         <div>
           <div class="story-eye">Campaign</div>
-          <h2 class="story-ttl">Heroes Takes<br>Milan Fashion<br><em>Week SS26</em></h2>
+          <h2 class="story-ttl">NDA at<br>Milan Fashion<br><em>Week SS26</em></h2>
           <p class="story-body">From the cobblestones of Milan to the front rows of Prada and Valentino — our models dominated every runway this season.</p>
           <a href="#" class="story-lnk">Read the recap &rarr;</a>
         </div>
@@ -815,7 +822,8 @@ const models=[
   {id:4,cat:'he',tag:'HE',name:'Justice Joslin',img:'https://images.unsplash.com/photo-1509631179647-0177331693ae?w=700&q=85',fullImg:'https://images.unsplash.com/photo-1509631179647-0177331693ae?w=1000&q=90',height:"6' 1''",chest:'C40',waist:'W32',hips:'H38',hair:'Brown',eyes:'Blue',shoe:'S 11½',agency:'NDA — Paris',bio:"Justice Joslin is power and poetry in equal measure. Paris-based and globally booked, he is one of NDA's most decorated male talents. A striking combination of angular features and natural ease, Justice has headlined campaigns for Jil Sander, Ferragamo, and Valentino, and is a runway fixture at the top houses during Paris and Milan Fashion Weeks.",tags:['Runway','Editorial','Luxury'],campaigns:['https://images.unsplash.com/photo-1552374196-1ab2a1c593e8?w=500&q=80','https://images.unsplash.com/photo-1581044777550-4cfa60707c03?w=500&q=80','https://images.unsplash.com/photo-1509631179647-0177331693ae?w=500&q=80'],credits:[{brand:'Valentino',season:'PFW AW25 — Opener'},{brand:'Jil Sander',season:'SS26 Campaign'},{brand:'Ferragamo',season:'MFW AW25'},{brand:'Numéro Homme',season:'Issue 22 Cover'},{brand:'Gucci',season:'SS25 Global Lookbook'}]},
   {id:5,cat:'she',tag:'SHE',name:'Apolline Rocco',img:'https://images.unsplash.com/photo-1496747611176-843222e1e57c?w=700&q=85',fullImg:'https://images.unsplash.com/photo-1496747611176-843222e1e57c?w=1000&q=90',height:"5' 10''",bust:'B30½',waist:'W23½',hips:'H34½',hair:'Blond',eyes:'Blue Green',shoe:'S 10',agency:'NDA — Paris',bio:"Apolline Rocco Fohrer opened for Valentino at MFW SS26 — a moment that announced her arrival to the global stage. Part Parisian elegance, part raw edge, Apolline brings an effortless bilingual sophistication to every project. Her portfolio spans high fashion editorial, luxury campaigns, and prestigious runway appearances across all four fashion capitals.",tags:['Runway','Editorial','Cover','Luxury'],campaigns:['https://images.unsplash.com/photo-1529139574466-a303027c1d8b?w=500&q=80','https://images.unsplash.com/photo-1566206091558-7f218b696731?w=500&q=80','https://images.unsplash.com/photo-1496747611176-843222e1e57c?w=500&q=80'],credits:[{brand:'Valentino',season:'MFW SS26 — Opener'},{brand:'Gucci',season:'SS26 Campaign'},{brand:'Numéro',season:'April 2025 Cover'},{brand:'Missoni',season:'AW25 Runway'},{brand:'Chanel',season:'Couture SS25'}]},
   {id:6,cat:'she',tag:'SHE',name:'Achol Kuir',img:'https://images.unsplash.com/photo-1492707892479-7bc8d5a4ee93?w=700&q=85',fullImg:'https://images.unsplash.com/photo-1492707892479-7bc8d5a4ee93?w=1000&q=90',height:"5' 10''",bust:'B30½',waist:'W23½',hips:'H34',hair:'Black',eyes:'Black',shoe:'S 9',agency:'NDA — London',bio:"Achol Kuir is a force of quiet intensity. Born in South Sudan and raised in London, she brings a depth and presence to every frame that transcends fashion. Having closed for Gucci at SS26, Achol is now one of the most requested models across London, New York, and Paris. Her editorial work is celebrated for its emotional honesty and cinematic power.",tags:['Runway','Editorial','Cover','Artistic'],campaigns:['https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=500&q=80','https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=500&q=80','https://images.unsplash.com/photo-1492707892479-7bc8d5a4ee93?w=500&q=80'],credits:[{brand:'Gucci',season:'MFW SS26 — Closer'},{brand:'Vogue UK',season:'September 2025 Cover'},{brand:'Dazed',season:'Issue 50 Cover Story'},{brand:'Prada',season:'AW25 Campaign'},{brand:'Fendi',season:'SS26 Runway'}]},
-  {id:7,cat:'he',tag:'HE',name:'Mathias Rosemond',img:'https://images.unsplash.com/photo-1581044777550-4cfa60707c03?w=700&q=85',fullImg:'https://images.unsplash.com/photo-1581044777550-4cfa60707c03?w=1000&q=90',height:"5' 11½''",chest:'C40',waist:'W24½',hips:'—',hair:'Brown',eyes:'Brown',shoe:'S 10½',agency:'NDA — Milan',bio:"Mathias Rosemond emerged from NDA's mentorship program and never looked back. His chiseled symmetry and camera-ready instincts have made him one of the most booked male models of his generation. Milan-based but globally active, Mathias has fronted campaigns for Dolce & Gabbana, Versace, and Armani, and walked for over twenty houses in his debut season.",tags:['Runway','Commercial','Fitness','Luxury'],campaigns:['https://images.unsplash.com/photo-1509631179647-0177331693ae?w=500&q=80','https://images.unsplash.com/photo-1552374196-1ab2a1c593e8?w=500&q=80','https://images.unsplash.com/photo-1581044777550-4cfa60707c03?w=500&q=80'],credits:[{brand:'Versace',season:'MFW SS26 Campaign'},{brand:'Armani',season:'AW25 Runway'},{brand:'Dolce & Gabbana',season:'SS25 Global Campaign'},{brand:'GQ Italia',season:'July 2025 Cover'},{brand:'Missoni',season:'SS26 Lookbook'}]}
+  {id:7,cat:'he',tag:'HE',name:'Mathias Rosemond',img:'https://images.unsplash.com/photo-1581044777550-4cfa60707c03?w=700&q=85',fullImg:'https://images.unsplash.com/photo-1581044777550-4cfa60707c03?w=1000&q=90',height:"5' 11½''",chest:'C40',waist:'W24½',hips:'—',hair:'Brown',eyes:'Brown',shoe:'S 10½',agency:'NDA — Milan',bio:"Mathias Rosemond emerged from NDA's mentorship program and never looked back. His chiseled symmetry and camera-ready instincts have made him one of the most booked male models of his generation. Milan-based but globally active, Mathias has fronted campaigns for Dolce & Gabbana, Versace, and Armani, and walked for over twenty houses in his debut season.",tags:['Runway','Commercial','Fitness','Luxury'],campaigns:['https://images.unsplash.com/photo-1509631179647-0177331693ae?w=500&q=80','https://images.unsplash.com/photo-1552374196-1ab2a1c593e8?w=500&q=80','https://images.unsplash.com/photo-1581044777550-4cfa60707c03?w=500&q=80'],credits:[{brand:'Versace',season:'MFW SS26 Campaign'},{brand:'Armani',season:'AW25 Runway'},{brand:'Dolce & Gabbana',season:'SS25 Global Campaign'},{brand:'GQ Italia',season:'July 2025 Cover'},{brand:'Missoni',season:'SS26 Lookbook'}]},
+  {id:8,cat:'they',tag:'THEY',name:'Sage Ellery',img:'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=700&q=85',fullImg:'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=1000&q=90',height:"5' 11''",bust:'B31',waist:'W26',hips:'H35',hair:'Dark Brown',eyes:'Hazel',shoe:'S 9½',agency:'NDA — New York',bio:"Sage Ellery defies category in the most compelling way. New York-based and globally in demand, they move between editorial, commercial, and runway with an ease that few possess. Their androgynous presence and expressive range have made them one of the most exciting new signings on the NDA board, earning campaigns with Valentino Beauty and a debut cover for Dazed.",tags:['Editorial','Runway','Cover','Commercial'],campaigns:['https://images.unsplash.com/photo-1529139574466-a303027c1d8b?w=500&q=80','https://images.unsplash.com/photo-1566206091558-7f218b696731?w=500&q=80','https://images.unsplash.com/photo-1487222477894-8943e31ef7b2?w=500&q=80'],credits:[{brand:'Valentino Beauty',season:'SS26 Global Campaign'},{brand:'Dazed',season:'Issue 51 Cover'},{brand:'Marc Jacobs',season:'SS26 Runway'},{brand:'Vogue US',season:'March 2026 Editorial'},{brand:'Fendi',season:'AW25 Lookbook'}]}
 ];
 
 const pressStories={
@@ -828,7 +836,7 @@ const pressStories={
 };
 
 const stories=[
-  {img:'https://images.unsplash.com/photo-1539109136881-3be0616acf4b?w=800&q=85',badge:'MFW<br>SS26<br>RECAP',title:'Heroes Takes<br>Milan Fashion<br><em>Week SS26</em>',body:'From the cobblestones of Milan to the front rows of Prada and Valentino — our models dominated every runway this season. Apolline opened for Valentino. Achol closed for Gucci. Elvis headlined GQ. This is what it looks like when a roster fires on all cylinders.',link:'Read the recap →'},
+  {img:'https://images.unsplash.com/photo-1539109136881-3be0616acf4b?w=800&q=85',badge:'MFW<br>SS26<br>RECAP',title:'NDA at<br>Milan Fashion<br><em>Week SS26</em>',body:'From the cobblestones of Milan to the front rows of Prada and Valentino — our models dominated every runway this season. Apolline opened for Valentino. Achol closed for Gucci. Elvis headlined GQ. This is what it looks like when a roster fires on all cylinders.',link:'Read the recap →'},
   {img:'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=800&q=85',badge:'PFW<br>AW25<br>HIGHS',title:'Paris Fashion<br>Week — Our<br><em>Standout Moments</em>',body:'Paris showed up and so did we. River Klein made her runway debut at Chanel. Justice Joslin closed for Dior Homme. Five models. Eleven shows. One extraordinary week under the lights of the City of Light.',link:'View the season →'},
   {img:'https://images.unsplash.com/photo-1529139574466-a303027c1d8b?w=800&q=85',badge:'NEW<br>FACES<br>2026',title:'Meet the Class<br>of 2026 —<br><em>Rising Stars</em>',body:"Every season we introduce fresh talent that's about to reshape the industry. This year's new faces are raw, magnetic, and ready. Here's an introduction to the names you'll be seeing everywhere.",link:'Meet the class →'}
 ];
@@ -910,7 +918,7 @@ function slide(id,ms){
   let c=0;
   setInterval(()=>{imgs[c].classList.remove('on');c=(c+1)%imgs.length;imgs[c].classList.add('on');},ms);
 }
-slide('sfTop',4500);slide('sfBot',6200);
+slide('sfLeft',5800);slide('sfTop',4500);slide('sfBot',6200);
 
 // ── HOME MODEL CARDS ─────────────────────────────────────
 let ct=null;
@@ -936,7 +944,7 @@ function filtMod(btn,cat){
   document.querySelectorAll('.mc').forEach(c=>c.classList.remove('dim'));
 }
 
-// ── ROSTER (Heroes style) ─────────────────────────────────
+// ── ROSTER ───────────────────────────────────────────────
 function buildRoster(cat){
   const grid=document.getElementById('rosterGrid');
   grid.innerHTML='';
@@ -969,7 +977,7 @@ function filtRoster(btn,cat){
 // ── PROFILE MODAL ────────────────────────────────────────
 function openProfile(id){
   const m=models[id];if(!m)return;
-  const sr=m.cat==='she'
+  const sr=m.cat==='she'||m.cat==='they'
     ?`<div class="ph-s"><div class="ph-sl">Height</div><div class="ph-sv">${m.height}</div></div><div class="ph-s"><div class="ph-sl">Bust</div><div class="ph-sv">${m.bust}</div></div><div class="ph-s"><div class="ph-sl">Waist</div><div class="ph-sv">${m.waist}</div></div><div class="ph-s"><div class="ph-sl">Hips</div><div class="ph-sv">${m.hips}</div></div><div class="ph-s"><div class="ph-sl">Hair</div><div class="ph-sv">${m.hair}</div></div><div class="ph-s"><div class="ph-sl">Eyes</div><div class="ph-sv">${m.eyes}</div></div>`
     :`<div class="ph-s"><div class="ph-sl">Height</div><div class="ph-sv">${m.height}</div></div><div class="ph-s"><div class="ph-sl">Chest</div><div class="ph-sv">${m.chest}</div></div><div class="ph-s"><div class="ph-sl">Waist</div><div class="ph-sv">${m.waist}</div></div><div class="ph-s"><div class="ph-sl">Hips</div><div class="ph-sv">${m.hips}</div></div><div class="ph-s"><div class="ph-sl">Hair</div><div class="ph-sv">${m.hair}</div></div><div class="ph-s"><div class="ph-sl">Eyes</div><div class="ph-sv">${m.eyes}</div></div>`;
   document.getElementById('pModInner').innerHTML=`
