@@ -369,6 +369,13 @@ footer{padding:3rem 3.5rem 2.2rem;border-top:1px solid var(--line)}
   .sec{padding:2.5rem 1.5rem}
   .sh{flex-wrap:wrap;gap:.8rem;margin-bottom:1.4rem}
 
+  /* MODEL FILTER */
+  .mfilt{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--line);border-bottom:none;margin-bottom:1.4rem}
+  .mf{border-right:1px solid var(--line);border-bottom:1px solid var(--line);padding:.7rem 0;font-size:7px;letter-spacing:.08em;text-align:center}
+  .mf:nth-child(2n){border-right:none}
+  .mf.on::after{display:none}
+  .mf.on{background:rgba(138,117,96,.07)}
+
   /* MODEL GRID */
   .mgrid{grid-template-columns:repeat(2,1fr)}
   .mc:nth-child(1){grid-row:span 1}
@@ -421,8 +428,8 @@ footer{padding:3rem 3.5rem 2.2rem;border-top:1px solid var(--line)}
   .rc-txt{padding:1.4rem 1rem;min-height:0}
   .rc-name{font-size:15px}
   .rc-meas{font-size:6.5px}
-  .rfilt{padding:0;border:1px solid var(--line);margin:0 1.5rem 0}
-  .rf{flex:1;border-right:1px solid var(--line);text-align:center;padding:.75rem 0}
+  .rfilt{padding:0;border:1px solid var(--line);margin:0 1.5rem;flex-wrap:nowrap}
+  .rf{flex:1;min-width:0;border-right:1px solid var(--line);text-align:center;padding:.7rem 0;font-size:7px;letter-spacing:.06em}
   .rf:last-child{border-right:none}
   .rf.on::after{display:none}
 
