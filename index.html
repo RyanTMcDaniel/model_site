@@ -192,7 +192,7 @@ nav.sl{background:rgba(244,241,236,.98);backdrop-filter:blur(14px);padding:1rem 
 .scout-bg::after{content:'';position:absolute;inset:0;background:rgba(244,241,236,.42)}
 .scout-cnt{position:relative;z-index:2;padding:2.5rem}
 .scout-ttl{font-family:'Bebas Neue',sans-serif;font-size:clamp(44px,7.5vw,95px);line-height:.9;letter-spacing:.04em;margin-bottom:.9rem;overflow:visible;color:var(--black)}
-.scout-ttl em{color:var(--accent);font-style:italic;font-family:'Playfair Display',serif;font-size:.68em}
+.scout-ttl em{color:inherit;font-style:normal;font-family:inherit;font-size:inherit}
 .scout-sub{font-size:11.5px;color:rgba(28,28,28,.75);max-width:440px;margin:0 auto 1.8rem;line-height:1.8;font-weight:500}
 .scout-btn{display:inline-block;padding:.9rem 3.2rem;border:1px solid var(--black);color:var(--black);font-size:8.5px;letter-spacing:.25em;text-decoration:none;transition:all .35s;text-transform:uppercase;background:none;cursor:pointer;font-weight:600}
 .scout-btn:hover{background:var(--black);color:var(--bg)}
@@ -315,6 +315,12 @@ footer{padding:3rem 3.5rem 2.2rem;border-top:1px solid var(--line)}
 /* ─── REVEAL ─────────────────────────────────────────── */
 .rv{opacity:0;transform:translateY(18px);transition:opacity .75s ease,transform .75s ease}
 .rv.in{opacity:1;transform:translateY(0)}
+/* ─── APPLY FORM ─────────────────────────────────────── */
+.afield{display:flex;flex-direction:column;background:var(--card);padding:1rem 1.2rem}
+.alab{font-size:7px;letter-spacing:.24em;color:var(--accent);text-transform:uppercase;margin-bottom:.5rem}
+.ainp{background:none;border:none;border-bottom:1px solid rgba(28,28,28,.15);padding:.4rem 0;font-size:12px;color:var(--black);font-family:'Inter',sans-serif;outline:none;width:100%;transition:border-color .2s}
+.ainp:focus{border-bottom-color:var(--accent)}
+.ainp::placeholder{color:rgba(28,28,28,.3)}
 
 /* ─── HAMBURGER ──────────────────────────────────────── */
 .hbg{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px;z-index:1100}
@@ -430,7 +436,11 @@ footer{padding:3rem 3.5rem 2.2rem;border-top:1px solid var(--line)}
   #socialPage .about-body{grid-template-columns:1fr}
 
   /* PAGE PADDING */
-  #rosterPage,#aboutPage,#mentPage,#socialPage{padding-top:62px}
+  #rosterPage,#aboutPage,#mentPage,#socialPage,#applyPage{padding-top:62px}
+  /* APPLY FORM */
+  #applyPage>div:last-of-type{padding:2.5rem 1.5rem}
+  #applyForm>div[style*="grid-template-columns:1fr 1fr 1fr"]{grid-template-columns:1fr!important}
+  #applyForm>div[style*="grid-template-columns:1fr 1fr"]{grid-template-columns:1fr!important}
 }
 </style>
 </head>
@@ -462,7 +472,7 @@ footer{padding:3rem 3.5rem 2.2rem;border-top:1px solid var(--line)}
     <a href="https://instagram.com/" target="_blank" class="nav-ig">
       <svg viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="5.5" stroke="#1c1c1c" stroke-width="1.5" fill="none"/><circle cx="12" cy="12" r="4.5" stroke="#1c1c1c" stroke-width="1.5" fill="none"/><circle cx="17.5" cy="6.5" r="1.1" fill="#1c1c1c"/></svg>
     </a>
-    <button class="nav-scout">Get Scouted</button>
+    <button class="nav-scout" onclick="goApply()">Get Scouted</button>
   </div>
   <button class="hbg" id="hbg" onclick="toggleMenu()">
     <span></span><span></span><span></span>
@@ -479,7 +489,7 @@ footer{padding:3rem 3.5rem 2.2rem;border-top:1px solid var(--line)}
     <a onclick="goSocial();toggleMenu()">Social</a>
     <a onclick="goAbout();toggleMenu()">About Us</a>
   </div>
-  <button class="mob-nav-scout" onclick="toggleMenu()">Get Scouted</button>
+  <button class="mob-nav-scout" onclick="goApply();toggleMenu()">Get Scouted</button>
 </div>
 
 <!-- ══════════ HOME ════════════════════════════════════ -->
@@ -690,7 +700,7 @@ footer{padding:3rem 3.5rem 2.2rem;border-top:1px solid var(--line)}
   <div class="scout-cnt">
     <h2 class="scout-ttl">THINK YOU BELONG <em>Here?</em></h2>
     <p class="scout-sub">We're always looking for extraordinary people. No experience necessary — just the right energy, the right look, and the drive to go all the way.</p>
-    <button class="scout-btn">Apply Now</button>
+    <button class="scout-btn" onclick="goApply()">Apply Now</button>
     <span class="scout-note">We will never ask for payment. Read our safety guidelines before applying.</span>
   </div>
 </section>
@@ -839,7 +849,7 @@ footer{padding:3rem 3.5rem 2.2rem;border-top:1px solid var(--line)}
     <div class="scout-cnt">
       <h2 class="scout-ttl">READY TO START?</h2>
       <p class="scout-sub">Applications are reviewed on a rolling basis. Submit your details and one of our mentorship coordinators will be in touch within five business days.</p>
-      <button class="scout-btn">Apply to the Program</button>
+      <button class="scout-btn" onclick="goApply()">Apply to the Program</button>
       <span class="scout-note">mentorship@ndamodels.com &nbsp;&middot;&nbsp; We will never ask for upfront payment.</span>
     </div>
   </section>
@@ -916,6 +926,63 @@ footer{padding:3rem 3.5rem 2.2rem;border-top:1px solid var(--line)}
       <div class="pi" onclick="goHome();setTimeout(()=>openPress('HARPERS'),100)"><div class="ppub">HARPER'S</div><div class="pct">22 features</div><div class="pcta">Browse &rarr;</div></div>
       <div class="pi" onclick="goHome();setTimeout(()=>openPress('NUMERO'),100)"><div class="ppub">NUM&Eacute;RO</div><div class="pct">19 features</div><div class="pcta">Browse &rarr;</div></div>
       <div class="pi" onclick="goHome();setTimeout(()=>openPress('SYSTEM'),100)"><div class="ppub">SYSTEM</div><div class="pct">14 features</div><div class="pcta">Browse &rarr;</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ APPLY PAGE ═══════════════════════════════ -->
+<div id="applyPage" style="display:none;min-height:100vh;padding-top:78px;background:var(--bg)">
+  <div class="about-hero" style="height:40vh">
+    <img src="https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=1600&q=85" alt="">
+    <div class="about-hc">
+      <div class="about-hl">NDA Model Management &nbsp;&middot;&nbsp; Open Applications</div>
+      <h1 class="about-ht">GET SCOUTED</h1>
+    </div>
+  </div>
+  <div style="max-width:700px;margin:0 auto;padding:4rem 3.5rem">
+    <div style="margin-bottom:3rem">
+      <div class="slabel" style="margin-bottom:.8rem">Before You Apply</div>
+      <p style="font-size:12px;color:var(--muted);line-height:1.9">We review every application personally. No experience is necessary — we're looking for the right energy, look, and drive. We will <strong style="color:var(--black)">never</strong> ask for payment at any stage of the process.</p>
+    </div>
+    <form id="applyForm" onsubmit="submitApp(event)" style="display:flex;flex-direction:column;gap:0">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-bottom:2px">
+        <div class="afield"><label class="alab">First Name</label><input class="ainp" type="text" placeholder="First" required></div>
+        <div class="afield"><label class="alab">Last Name</label><input class="ainp" type="text" placeholder="Last" required></div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-bottom:2px">
+        <div class="afield"><label class="alab">Email</label><input class="ainp" type="email" placeholder="your@email.com" required></div>
+        <div class="afield"><label class="alab">Phone</label><input class="ainp" type="tel" placeholder="+1 000 000 0000"></div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:2px;margin-bottom:2px">
+        <div class="afield"><label class="alab">Age</label><input class="ainp" type="number" placeholder="18" min="16" max="99" required></div>
+        <div class="afield"><label class="alab">Height</label><input class="ainp" type="text" placeholder="5'10''"></div>
+        <div class="afield"><label class="alab">Location</label><input class="ainp" type="text" placeholder="City, Country"></div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-bottom:2px">
+        <div class="afield"><label class="alab">Instagram Handle</label><input class="ainp" type="text" placeholder="@yourhandle"></div>
+        <div class="afield">
+          <label class="alab">Applying As</label>
+          <select class="ainp">
+            <option value="">Select...</option>
+            <option>She / Her</option>
+            <option>He / Him</option>
+            <option>They / Them</option>
+          </select>
+        </div>
+      </div>
+      <div class="afield" style="margin-bottom:2px"><label class="alab">Tell us about yourself</label><textarea class="ainp" rows="4" placeholder="A little about your background, experience, and why you want to work with NDA..." style="resize:vertical"></textarea></div>
+      <div class="afield" style="margin-bottom:2.5rem">
+        <label class="alab">Photo (optional link)</label>
+        <input class="ainp" type="url" placeholder="Link to a recent photo or portfolio (Google Drive, Instagram, etc.)">
+      </div>
+      <div style="display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap">
+        <button type="submit" style="padding:1rem 3.5rem;background:var(--black);color:var(--bg);border:none;font-size:8.5px;letter-spacing:.25em;text-transform:uppercase;cursor:pointer;font-weight:600;transition:background .3s">Submit Application</button>
+        <span style="font-size:8px;letter-spacing:.1em;color:var(--muted)">scouting@ndamodels.com</span>
+      </div>
+    </form>
+    <div id="applyThanks" style="display:none;text-align:center;padding:4rem 2rem">
+      <div style="font-family:'Bebas Neue',sans-serif;font-size:48px;letter-spacing:.06em;overflow:visible;margin-bottom:1rem">Thank You</div>
+      <p style="font-size:12px;color:var(--muted);line-height:1.9;max-width:400px;margin:0 auto">We've received your application and will be in touch within 5 business days. In the meantime, follow us on Instagram for updates.</p>
     </div>
   </div>
 </div>
@@ -1019,8 +1086,19 @@ function goSocial(){
   document.getElementById('nSoc').classList.add('on');
   window.scrollTo({top:0,behavior:'instant'});
 }
+function goApply(){
+  hideAll();
+  document.getElementById('applyPage').style.display='block';
+  document.getElementById('nav').classList.add('sl');
+  window.scrollTo({top:0,behavior:'instant'});
+}
+function submitApp(e){
+  e.preventDefault();
+  document.getElementById('applyForm').style.display='none';
+  document.getElementById('applyThanks').style.display='block';
+}
 function hideAll(){
-  ['homePage','rosterPage','aboutPage','mentPage','socialPage'].forEach(id=>{
+  ['homePage','rosterPage','aboutPage','mentPage','socialPage','applyPage'].forEach(id=>{
     document.getElementById(id).style.display='none';
   });
   document.querySelectorAll('.nav-ctr a').forEach(a=>a.classList.remove('on'));
